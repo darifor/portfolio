@@ -84,6 +84,10 @@ for (let elemento of elementosTraducibles) {
   if (elemento.tagName === "INPUT" && elemento.name === "name") {
     contenidoOriginal.set(elemento, elemento.placeholder);
   }
+  if (elemento.tagName === "TEXTAREA") {
+    contenidoOriginal.set(elemento, elemento.placeholder);
+  }
+
 }
 
 for (let enlace of enlacesEn) {
@@ -96,6 +100,9 @@ for (let enlace of enlacesEn) {
         item.value = item.dataset.en;
       }
       if (item.tagName === "INPUT" && item.name === "name") {
+        item.placeholder = item.dataset.en;
+      }
+      if (item.tagName === "TEXTAREA") {
         item.placeholder = item.dataset.en;
       }
     }
@@ -112,6 +119,9 @@ for (let enlace of enlacesES) {
         elemento.value = original;
       }
       if (elemento.tagName === "INPUT" && elemento.name === "name") {
+        elemento.placeholder = original;
+      }
+      if (elemento.tagName === "TEXTAREA") {
         elemento.placeholder = original;
       }
     }
