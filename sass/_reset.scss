@@ -1,0 +1,20 @@
+@use 'variables' as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: $font-body;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    color: white;
+    background-color: $color-hard-black;
+}

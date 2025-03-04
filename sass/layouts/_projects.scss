@@ -1,0 +1,112 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+
+.projects {
+
+    &__container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 4%;
+        margin-bottom: 10px;
+
+        @include breakpoint(desktop) {
+            max-width: 1110px;
+            padding: 0;
+            margin-bottom: 40px;
+        }
+    }
+
+    h2 {
+        font-weight: 600;
+        font-size: 2.5rem;
+        line-height: 40px;
+        letter-spacing: -1.14px;
+        margin-bottom: 30px;
+
+        @include breakpoint(tablet) {
+            font-size: 3rem;
+        }
+
+        @include breakpoint(desktop) {
+            font-size: 3.2rem;
+            margin-bottom: 40px;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include breakpoint(tablet) {
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+    }
+
+    &__article {
+        margin-bottom: 40px;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+
+        @include breakpoint(tablet) {
+            max-width: 49%;
+        }
+
+        &-image {
+            width: 100%;
+
+            @include breakpoint(desktop) {
+                margin-bottom: 5px;
+            }
+        }
+
+        h3 {
+            font-weight: 700;
+            font-size: 1.3rem;
+            line-height: 2.3rem;
+            text-transform: uppercase;
+
+            @include breakpoint(desktop) {
+                font-size: 1.9rem;
+                line-height: 2.5rem;
+            }
+        }
+
+        &:hover img {
+            filter: brightness(0.3);
+        }
+
+        &:hover .projects__links {
+            filter: opacity(1);
+        }
+    }
+
+    &__tecs {
+        @include reset-list();
+        text-transform: uppercase;
+
+        @include breakpoint(desktop) {
+            font-size: 1.5rem;
+        }
+    }
+
+    &__links {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        align-items: center;
+        gap: 70px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-48%, -78%);
+        width: 100%;
+        filter: opacity(0);
+        transition: opacity 0.3s ease;
+    }
+
+}

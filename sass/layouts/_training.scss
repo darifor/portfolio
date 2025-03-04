@@ -1,0 +1,112 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+
+.training {
+
+    &__container {
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 50px;
+        padding: 0 4%;
+
+        @include breakpoint(desktop) {
+            max-width: 1110px;
+            padding: 0;
+        }
+    }
+
+    h2 {
+        font-weight: 600;
+        font-size: 2.5rem;
+        line-height: 40px;
+        letter-spacing: -1.14px;
+        margin-bottom: 30px;
+
+        @include breakpoint(tablet) {
+            font-size: 3rem;
+        }
+
+        @include breakpoint(desktop) {
+            font-size: 3.2rem;
+            margin-bottom: 40px
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-star;
+        gap: 20px;
+        position: relative;
+        padding-left: 50px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 10px;
+            width: 2px;
+            height: 100%;
+            background-color: $color-blue;
+        }
+    }
+
+    &__article {
+        border: 1px solid $color-blue;
+        border-radius: 10px;
+        box-shadow: inset 0px 0px 10px rgba(215, 215, 223, 0.5);
+        // max-width: 85%;
+        padding: 10px;
+        position: relative;
+
+        @include breakpoint(desktop) {
+            padding: 20px;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: -45px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: $color-blue;
+            box-shadow: 0 0 0 5px rgb(65, 65, 228);
+        }
+
+        h4 {
+            font-weight: 700;
+            font-size: 1rem;
+            line-height: 1.2rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+
+            @include breakpoint(desktop) {
+                font-size: 1.6rem;
+                margin-bottom: 10px;
+            }
+        }
+
+        &-subtitle {
+            font-weight: 300;
+            font-size: 1.2rem;
+            color: $color-gold;
+            margin-bottom: 15px;
+
+            @include breakpoint(desktop) {
+                font-size: 1.6rem;
+                font-weight: 500;
+            }
+        }
+
+        & .desc {
+            font-weight: 500;
+            font-size: 1rem;
+
+            @include breakpoint(desktop) {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,207 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+
+.header {
+
+    &__container {
+        width: 100%;
+        margin: 20px auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 4%;
+        position: relative;
+
+        @include breakpoint(desktop) {
+            max-width: 1110px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            padding: 0;
+        }
+    }
+
+    &__logo {
+        font-weight: 700;
+        font-size: 2.2rem;
+        line-height: 32px;
+        letter-spacing: -0.33px;
+
+        @include breakpoint(desktop) {
+            font-size: 2.8rem;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.5s ease;
+
+            &:hover {
+                color: $color-blue;
+            }
+
+            &:hover span {
+                color: white;
+            }
+        }
+
+    }
+
+    &__blue {
+        color: $color-blue;
+    }
+
+    &__full {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        z-index: 1;
+        padding-bottom: 15px;
+
+        ul {
+
+            li {
+                margin: 15px 0;
+
+                &:nth-last-child(1) {
+                    margin-bottom: 0;
+                }
+            }
+
+            a {
+                color: rgb(211, 31, 31);
+                text-decoration: none;
+                font-size: 1.5em;
+                font-weight: 700;
+                transition: box-shadow 0.3s ease;
+
+                &:hover {
+                    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        &.show {
+            display: flex;
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        @include breakpoint(tablet) {
+            display: none;
+        }
+    }
+
+    &__main {
+        display: none;
+
+        @include breakpoint(tablet) {
+            display: block;
+
+            ul {
+                @include reset-list();
+
+                a {
+                    color: white;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    text-decoration: none;
+                    position: relative;
+
+                    @include breakpoint(desktop) {
+                        font-size: 1.5rem;
+                    }
+
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        bottom: -3px;
+                        width: 0;
+                        height: 3px;
+                        background-color: $color-blue;
+                        transition: width 0.3s ease;
+                    }
+
+                    &:hover:after {
+                        width: 100%;
+                    }
+                }
+            }
+
+        }
+    }
+
+    &__lang {
+        display: none;
+
+        @include breakpoint(tablet) {
+            display: block;
+
+            ul {
+                @include reset-list();
+
+                a {
+                    color: white;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    text-decoration: none;
+                    position: relative;
+
+                    @include breakpoint(desktop) {
+                        font-size: 1.5rem;
+                    }
+
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        bottom: -3px;
+                        width: 0;
+                        height: 3px;
+                        background-color: $color-blue;
+                        transition: width 0.3s ease;
+                    }
+
+                    &:hover:after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    &__responsive {
+        font-size: 1.5em;
+        cursor: pointer;
+        transition: color 0.5s ease;
+
+        &:hover {
+            color: $color-blue;
+        }
+
+        @include breakpoint(tablet) {
+            display: none;
+        }
+    }
+}
+
+.fa-solid.fa-bars {
+    display: block;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.fa-solid.fa-xmark {
+    display: none;
+
+    &.show {
+        display: block;
+    }
+}
